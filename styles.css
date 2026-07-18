@@ -1,0 +1,274 @@
+/* === BASE === */
+html {
+  scroll-padding-top: 90px;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* === HEADER === */
+header {
+  background: #0d2137;
+  color: white;
+}
+header h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+}
+header p {
+  color: #7ecbd4;
+}
+/* === NAVBAR === */
+#main-nav {
+  background: #1a3a5c;
+}
+#main-nav .nav-link {
+  color: #7ecbd4;
+  min-height: 44px;
+  line-height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#main-nav .nav-link:hover {
+  color: white;
+}
+#main-nav .navbar-brand {
+  color: white;
+  font-weight: 700;
+}
+/* === TYPOGRAPHY === */
+h2 {
+  color: #0d2137;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  color: #1a3a5c;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+a {
+  color: #3498db;
+}
+/* === ABOUT PHOTO === */
+img.photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+/* === SKILLS === */
+.skill-item {
+  background: #f0f7ff;
+  border: 1px solid #c8e0f4;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #1a3a5c;
+  height: 100%;
+}
+/* === HOBBIES CARDS — кастомные цвета поверх Bootstrap .card === */
+.card {
+  border-color: #e0e0e0;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+.card-title {
+  color: #0d2137;
+}
+.card-text {
+  color: #555;
+  font-size: 0.95rem;
+}
+/* === TABLE === */
+.table-wrapper {
+  overflow-x: auto;
+}
+caption {
+  font-style: italic;
+  color: #555;
+}
+table thead th {
+  background: #0d2137 !important;
+  color: white !important;
+}
+table tbody th {
+  background: #e8f4fb;
+}
+/* CONTACT FORM
+   Real-time visual feedback via CSS pseudo-classes, plus a class-based
+   fallback (.is-invalid) so JS-driven validation renders consistently
+   even before the user has focused/blurred a field. */
+#contact-form .form-control:not(:focus):invalid,
+#contact-form .form-control.is-invalid {
+  border-color: #EF4444;
+}
+#contact-form .form-control:valid {
+  border-color: #16A34A;
+}
+#contact-form .form-text {
+  font-size: 0.85rem;
+  color: #666;
+}
+#contact-form .error-message {
+  display: block;
+  color: #EF4444;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+#contact-form .btn:disabled {
+  opacity: 0.75;
+  cursor: progress;
+}
+/* === FOOTER === */
+footer {
+  background: #0d2137;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+/*
+   L7 ADDITIONS — theme toggle, char counter, filter
+   */
+/* --- Live character counter (message field) --- */
+#char-counter {
+  font-size: 0.85rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+/* --- Project/Hobby filter buttons --- */
+.filter-btn.active {
+  background-color: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+/* --- Active nav link (toggled by IntersectionObserver in script.js) --- */
+#main-nav .nav-link.active {
+  color: #ffffff;
+  font-weight: 700;
+  border-bottom: 2px solid #7ecbd4;
+}
+/* --- Dark mode theme, toggled on <body> via classList --- */
+body.dark-mode {
+  background: #1a1a2e;
+  color: #eee;
+}
+body.dark-mode header,
+body.dark-mode footer {
+  background: #0a0a1a;
+}
+body.dark-mode #main-nav {
+  background: #0f0f24;
+}
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #eee;
+}
+body.dark-mode a {
+  color: #7ecbd4;
+}
+body.dark-mode .card {
+  background: #24243e;
+  border-color: #3a3a5c;
+}
+body.dark-mode .card-title {
+  color: #eee;
+}
+body.dark-mode .card-text {
+  color: #ccc;
+}
+body.dark-mode .skill-item {
+  background: #24243e;
+  border-color: #3a3a5c;
+  color: #eee;
+}
+body.dark-mode table tbody th {
+  background: #24243e;
+  color: #eee;
+}
+body.dark-mode #contact-form .form-control {
+  background: #24243e;
+  color: #eee;
+  border-color: #3a3a5c;
+}
+body.dark-mode #char-counter {
+  color: #9aa0ad;
+}
+
+/*
+   L8 ADDITIONS — data-driven "My Projects" section
+   */
+#project-desc-counter {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+#project-empty {
+  border: 1px dashed #c8e0f4;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+#last-updated {
+  font-size: 0.8rem;
+  color: #7ecbd4;
+}
+body.dark-mode #project-desc-counter {
+  color: #9aa0ad;
+}
+body.dark-mode #project-empty {
+  border-color: #3a3a5c;
+  color: #ccc;
+}
+
+/*
+   L9 ADDITIONS — visitor greeting banner, cookie-driven, and comment list
+   */
+#greeting {
+  border-radius: 0;
+}
+.comment-item {
+  background: #f0f7ff;
+  border: 1px solid #c8e0f4;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.6rem;
+  /* Whatever the visitor typed lands here as plain escaped text —
+     long "words" (e.g. a pasted <script>...</script> string) still wrap
+     instead of overflowing the box. */
+  overflow-wrap: anywhere;
+}
+#comment-empty {
+  border: 1px dashed #c8e0f4;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+}
+body.dark-mode .comment-item {
+  background: #24243e;
+  border-color: #3a3a5c;
+  color: #eee;
+}
+body.dark-mode #comment-empty {
+  border-color: #3a3a5c;
+  color: #ccc;
+}
+
+/*
+   L10 ADDITIONS — GitHub Projects (Live) section
+   */
+#github-status {
+  font-size: 0.9rem;
+  min-height: 1.4em; /* reserves space so the layout doesn't jump when text appears/clears */
+}
+body.dark-mode #github-status {
+  color: #9aa0ad;
+}

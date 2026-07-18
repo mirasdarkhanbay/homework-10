@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miras Darkhanbay — Portfolio</title>
+
+    <!--1: Bootstrap 5 CSS via CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <header class="text-center py-4">
+      <h1>Miras Darkhanbay</h1>
+      <p class="mb-0">Student · Narxoz University · Almaty</p>
+    </header>
+
+    <!--2: Navbar адаптивный
+         navbar-expand-md — гамбургер на мобиле, горизонтально от 768px
+         sticky-top — прилипает к верху
+         Bootstrap JS обрабатывает открытие/закрытие -->
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top" id="main-nav">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#">Miras D.</a>
+
+        <!-- Lecture 7: Theme toggle button — flips a 'dark-mode' class on <body> -->
+        <button
+          type="button"
+          id="theme-toggle"
+          class="btn btn-sm btn-outline-light order-md-2 ms-2"
+        >
+          🌙 <span id="theme-toggle-label">Dark Mode</span>
+        </button>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navLinks"
+          aria-controls="navLinks"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navLinks">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#github-projects">GitHub Live</a></li>
+            <li class="nav-item"><a class="nav-link" href="#languages-table">Languages</a></li>
+            <li class="nav-item"><a class="nav-link" href="#comments">Comments</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://narxoz.kz" target="_blank" rel="noopener">
+                Narxoz ↗
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- L9: Visitor greeting banner — filled in by greetReturningVisitor() in script.js
+         based on the 'visitorName' cookie. Hidden until JS has something to show. -->
+    <div id="greeting" class="alert alert-info text-center mb-0 rounded-0" role="status" aria-live="polite" hidden></div>
+
+    <main class="container py-4">
+
+      <!-- ABOUT — два столбца от md+ через Bootstrap grid -->
+      <section id="about" class="mb-5">
+        <h2>About Me</h2>
+
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-md-3 text-center">
+            <img
+              class="photo mx-auto"
+              src="https://avatars.mds.yandex.net/i?id=46078e0a9c732d65714fefc56a892010_l-5222088-images-thumbs&n=13"
+              alt="Profile photo of Miras Darkhanbay"
+              width="160"
+              height="160"
+            >
+          </div>
+          <div class="col-12 col-md-9">
+            <p>Hi! My name is Miras Darkhanbay. I am 19 years old.</p>
+            <p>I live in Almaty, Kazakhstan. Currently I am a 2nd year student at Narxoz University studying Digital Management and design.</p>
+            <h3>Contact Info</h3>
+            <p>Email: <a href="mailto:miras.darkhanbai@narxoz.kz">miras.darkhanbai@narxoz.kz</a></p>
+            <p>Phone: <a href="tel:+87777777777">+8 777 777 77 77</a></p>
+            <p>City: Almaty, Kazakhstan</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS — Bootstrap grid вместо auto-fill -->
+      <section id="skills" class="mb-5">
+        <h2>Skills</h2>
+
+        <div class="row g-3 mt-1">
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">🌐 HTML5</div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">🎨 CSS</div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">💻 VS Code</div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">🔍 DevTools</div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">📐 Figma</div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2">
+            <div class="skill-item text-center p-3">📚 Reading</div>
+          </div>
+        </div>
+      </section>
+
+      <!--3, 4: Hobbies - Bootstrap card + grid 1→2→3
+           row-cols-1 = 1 колонка на мобиле
+           row-cols-sm-2 = 2 колонки от 576px
+           row-cols-lg-3 = 3 колонки от 992px
+           g-4 = gap между карточками
+           h-100 = одинаковая высота карточек в ряду
+
+           L 7: each .col also gets class="project-card" + data-category
+           so the filter buttons below can show/hide them with classList. -->
+      <section id="hobbies" class="mb-5">
+        <h2>Hobbies</h2>
+
+        <!-- L 7: Project/Hobby filter — buttons filter the grid via data-category -->
+        <div class="mb-3 d-flex flex-wrap gap-2" role="group" aria-label="Filter hobbies by category">
+          <button type="button" class="btn btn-sm btn-outline-primary filter-btn active" data-category="all">All</button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-btn" data-category="active">Active</button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-btn" data-category="creative">Creative</button>
+          <button type="button" class="btn btn-sm btn-outline-primary filter-btn" data-category="relaxing">Relaxing</button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-1">
+          <div class="col project-card" data-category="relaxing">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">📚 Reading Books</h5>
+                <p class="card-text">I enjoy reading in my free time. Books help me learn new things and relax.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col project-card" data-category="relaxing">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">🎵 Listening to Music</h5>
+                <p class="card-text">Music keeps me focused and motivated while studying or working on projects.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col project-card" data-category="creative">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">🎮 Gaming</h5>
+                <p class="card-text">I enjoy strategy games — they help develop logical thinking and planning skills.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col project-card" data-category="active">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">🚴 Cycling</h5>
+                <p class="card-text">Cycling around Almaty keeps me active and clears my mind after long study sessions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col project-card" data-category="creative">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">🍳 Cooking</h5>
+                <p class="card-text">I like experimenting with simple recipes and learning new dishes from different cultures.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col project-card" data-category="active">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">✈️ Travelling</h5>
+                <p class="card-text">Exploring new places and cultures broadens my perspective and inspires creativity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- L8: My Projects — data-driven grid
+           Rendered entirely from a JS array + JSON in localStorage.
+           See script.js "PART: Lecture 8 — Data-driven Projects" for the logic. -->
+      <section id="projects" class="mb-5">
+        <h2>My Projects</h2>
+        <p>Add or remove projects below — everything here is rendered from data and saved as JSON, so it survives a page reload.</p>
+
+        <!-- Add-project form -->
+        <form id="add-project-form" class="row g-2 align-items-start mb-3">
+          <div class="col-12 col-md-3">
+            <label for="project-title" class="form-label visually-hidden">Project title</label>
+            <input
+              type="text"
+              id="project-title"
+              class="form-control"
+              placeholder="Project title"
+              required
+              maxlength="60"
+            >
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="project-desc" class="form-label visually-hidden">Description</label>
+            <input
+              type="text"
+              id="project-desc"
+              class="form-control"
+              placeholder="Short description"
+              required
+              maxlength="140"
+            >
+            <div id="project-desc-counter" class="form-text">0/140</div>
+          </div>
+          <div class="col-8 col-md-3">
+            <label for="project-category" class="form-label visually-hidden">Category</label>
+            <input
+              type="text"
+              id="project-category"
+              class="form-control"
+              placeholder="Category (e.g. web, app)"
+              required
+            >
+          </div>
+          <div class="col-4 col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Add</button>
+          </div>
+        </form>
+
+        <!-- Filter buttons — rebuilt from the current project categories -->
+        <div id="project-filter-bar" class="mb-3 d-flex flex-wrap gap-2" role="group" aria-label="Filter projects by category"></div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="project-grid"></div>
+        <p id="project-empty" class="text-muted mt-3" hidden>No projects yet — add your first one above 👆</p>
+      </section>
+
+      <!-- L10: GitHub Projects (Live) — pulled from the real GitHub REST API
+           with fetch()/async-await, a 5s timeout via AbortController, error
+           handling, and a localStorage fallback cache. See script.js
+           "L10: Client-Side Storage & Asynchronous Requests" for the logic.
+           Kept separate from the manual "My Projects" section above so both
+           labs keep working independently. -->
+      <section id="github-projects" class="mb-5">
+        <h2>GitHub Projects (Live)</h2>
+        <p>Pulled live from the GitHub REST API — <code>fetch()</code> with a 5-second timeout, error handling, and a cached fallback if the request fails.</p>
+        <p id="github-status" class="text-muted" role="status" aria-live="polite"></p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="github-project-list"></div>
+      </section>
+
+      <!-- TABLE — Bootstrap table classes + scroll wrapper -->
+      <section id="languages-table" class="mb-5">
+        <h2>Programming Languages</h2>
+        <p>A table of 5 popular programming languages.</p>
+
+        <div class="table-wrapper mt-3">
+          <table class="table table-bordered table-striped">
+            <caption>Popular Programming Languages</caption>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Paradigm</th>
+                <th scope="col">Creator</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Python</th>
+                <td>1991</td>
+                <td>Multi-paradigm</td>
+                <td>Guido van Rossum</td>
+              </tr>
+              <tr>
+                <th scope="row">JavaScript</th>
+                <td>1995</td>
+                <td>Multi-paradigm</td>
+                <td>Brendan Eich</td>
+              </tr>
+              <tr>
+                <th scope="row">Java</th>
+                <td>1995</td>
+                <td>Object-oriented</td>
+                <td>James Gosling</td>
+              </tr>
+              <tr>
+                <th scope="row">C</th>
+                <td>1972</td>
+                <td>Procedural</td>
+                <td>Dennis Ritchie</td>
+              </tr>
+              <tr>
+                <th scope="row">Swift</th>
+                <td>2014</td>
+                <td>Multi-paradigm</td>
+                <td>Chris Lattner</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- L9: Comments — plain-text comments, always rendered through safeRender()
+           so a pasted <img src=x onerror=...> tag shows up as visible text,
+           never as executable markup. Persisted in localStorage. -->
+      <section id="comments" class="mb-5">
+        <h2>Comments</h2>
+        <p>Leave a comment below. Try pasting an HTML tag — it will render as plain text, not markup.</p>
+
+        <form id="comment-form" class="row g-2 align-items-start mb-3">
+          <div class="col-12 col-md-9">
+            <label for="comment-input" class="form-label visually-hidden">Comment</label>
+            <input
+              type="text"
+              id="comment-input"
+              class="form-control"
+              placeholder="Write a comment..."
+              required
+              maxlength="300"
+            >
+          </div>
+          <div class="col-12 col-md-3">
+            <button type="submit" class="btn btn-primary w-100">Post</button>
+          </div>
+        </form>
+
+        <div id="comment-list"></div>
+        <p id="comment-empty" class="text-muted mt-3" hidden>No comments yet — be the first 👆</p>
+      </section>
+
+      <!--6: Contact form — upgraded per Lecture 6 (Forms & Validation)
+           - method="POST", enctype=urlencoded, novalidate on the form
+           - explicit <label for=...> on every field + hint text
+           - HTML5 constraint attrs: required, minlength/maxlength, type=email
+           - JS (contact-validation.js) intercepts submit, shows inline errors
+           - ARIA: aria-required, aria-invalid, aria-describedby, role=alert
+           - Bootstrap .btn.btn-primary w-100 with a spinner while "sending"
+           - Lecture 7: added a live character counter under the message field -->
+      <section id="contact" class="mb-5">
+        <h2>Contact Me</h2>
+
+        <div class="row justify-content-center mt-3">
+          <div class="col-12 col-md-8 col-lg-6">
+            <form
+              id="contact-form"
+              method="POST"
+              action="#"
+              enctype="application/x-www-form-urlencoded"
+              novalidate
+            >
+              <!-- Full Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                  minlength="2"
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="name-hint name-error"
+                >
+                <div id="name-hint" class="form-text">At least 2 characters.</div>
+                <span id="name-error" class="error-message" role="alert" hidden></span>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="email-hint email-error"
+                >
+                <div id="email-hint" class="form-text">We'll never share your email.</div>
+                <span id="email-error" class="error-message" role="alert" hidden></span>
+              </div>
+
+              <!-- Subject -->
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                  required
+                  maxlength="120"
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="subject-error"
+                >
+                <span id="subject-error" class="error-message" role="alert" hidden></span>
+              </div>
+
+              <!-- Message -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="form-control"
+                  required
+                  minlength="10"
+                  maxlength="1000"
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="message-hint message-error"
+                ></textarea>
+                <div class="d-flex justify-content-between">
+                  <div id="message-hint" class="form-text">10–1000 characters.</div>
+                  <!-- Lecture 7: live character counter, updated on the 'input' event -->
+                  <div id="char-counter" class="form-text">0/1000</div>
+                </div>
+                <span id="message-error" class="error-message" role="alert" hidden></span>
+              </div>
+
+              <!-- Live status region, announced without moving focus -->
+              <div id="form-status" class="alert alert-success" role="status" aria-live="polite" hidden>
+                Message sent successfully!
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary w-100">
+                <span
+                  id="submit-spinner"
+                  class="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                  hidden
+                ></span>
+                <span id="submit-label">Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4">
+      <p class="mb-0">&copy; 2026 Miras Darkhanbay</p>
+      <p id="last-updated" class="mb-0 mt-1"></p>
+    </footer>
+
+    <!--Bootstrap JS Bundle — нужен для navbar toggle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lecture 6: custom client-side validation + accessibility wiring -->
+    <script src="contact-validation.js"></script>
+    <!-- Lecture 7/8/9: theme toggle, char counter, project filter, cookies, comments -->
+    <script src="script.js" defer></script>
+  </body>
+</html>
