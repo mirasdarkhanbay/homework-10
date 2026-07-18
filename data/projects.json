@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Fundamentals-of-WEB-technologies",
+    "description": "Main coursework repo for the Fundamentals of Web Technologies course",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/Fundamentals-of-WEB-technologies"
+  },
+  {
+    "id": 2,
+    "title": "homework-3",
+    "description": "HTML/CSS layout assignment — Lecture 3",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/homework-3"
+  },
+  {
+    "id": 3,
+    "title": "homework-4",
+    "description": "HTML/CSS assignment — Lecture 4",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/homework-4"
+  },
+  {
+    "id": 4,
+    "title": "homework-5",
+    "description": "HTML/CSS assignment — Lecture 5",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/homework-5"
+  },
+  {
+    "id": 5,
+    "title": "homework-6",
+    "description": "Contact form with client-side validation — Lecture 6",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/homework-6"
+  },
+  {
+    "id": 6,
+    "title": "hw7",
+    "description": "Theme toggle, character counter, project filter — Lecture 7",
+    "category": "web",
+    "url": "https://github.com/mirasdarkhanbay/hw7"
+  }
+]
